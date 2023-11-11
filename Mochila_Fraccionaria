@@ -1,0 +1,158 @@
+import time
+import matplotlib.pyplot as plt
+
+def mochila(capacidad, objetos):
+    #Ordenar por valor/peso
+    objetos.sort(key=lambda x: x[0]/x[1], reverse = True)
+    total_objetos = 0.0
+    mochila = []
+    for valor, peso in objetos:
+        # Si el objeto se puede guardar completo
+        if capacidad >= peso:
+            mochila.append((valor,peso))
+            total_objetos += valor
+            capacidad -= peso
+        # El objeo pesa más de la capacidad de la mochila
+
+        else:
+            fracc = capacidad / peso
+            mochila.append((valor*fracc, peso*fracc))
+            total_objetos += valor*fracc
+            break
+
+    return total_objetos, mochila
+    
+    
+def plot_graph(objetos, mochila, capacidad):
+    plt.scatter(*zip(*objetos), label='Objetos')
+    plt.scatter(*zip(*mochila), color='red', label='Mochila')
+    plt.title(f'Mochila con capacidad {capacidad}')
+    plt.xlabel('Valor')
+    plt.ylabel('Peso')
+    plt.legend()
+    plt.show()
+
+def exper1():
+    inicio = time.time()
+    objetos = [(5,10), (1,15), (1,8), (3,15), (2,9), (1,7)]
+    capacidad = 35
+    total_objetos, mochila1 = mochila(capacidad, objetos)
+    print(f'El total de objetos es {total_objetos} y la mochila quedo{mochila1}')
+    plot_graph(objetos, mochila1, capacidad)
+    fin = time.time()
+    tiempo_ejecutado = fin - inicio
+    print('Tiempo de ejecucion: ', tiempo_ejecutado)
+
+def exper2():
+    inicio = time.time()
+    objetos = [(5,10), (1,10), (1,4), (3,12),(1,8), (3,15)]
+    capacidad = 25
+    total_objetos, mochila1 = mochila(capacidad, objetos)
+    print(f'El total de objetos es {total_objetos} y la mochila quedo{mochila1}')
+    plot_graph(objetos, mochila1, capacidad)
+    fin = time.time()
+    tiempo_ejecutado = fin - inicio
+    print('Tiempo de ejecucion: ', tiempo_ejecutado)
+
+
+def exper3():
+    inicio = time.time()
+    objetos = [(5,15), (1,15), (4,20), (3,15), (5,10), (1,10)]
+    capacidad = 55
+    total_objetos, mochila1 = mochila(capacidad, objetos)
+    print(f'El total de objetos es {total_objetos} y la mochila quedo{mochila1}')
+    plot_graph(objetos, mochila1, capacidad)
+    fin = time.time()
+    tiempo_ejecutado = fin - inicio
+    print('Tiempo de ejecucion: ', tiempo_ejecutado)
+
+
+def exper4():
+    inicio = time.time()
+    objetos = [(5,15), (2,10), (1,20), (3,5), (4,20), (3,15), (1,15), (5,10)]
+    capacidad = 75
+    total_objetos, mochila1 = mochila(capacidad, objetos)
+    print(f'El total de objetos es {total_objetos} y la mochila quedo{mochila1}')
+    plot_graph(objetos, mochila1, capacidad)
+    fin = time.time()
+    tiempo_ejecutado = fin - inicio
+    print('Tiempo de ejecucion: ', tiempo_ejecutado)
+
+
+def exper5():
+    inicio = time.time()
+    objetos = [(5,10), (1,15), (1,4), (1,5), (5,15), (2,10)]
+    capacidad = 15
+    total_objetos, mochila1 = mochila(capacidad, objetos)
+    print(f'El total de objetos es {total_objetos} y la mochila quedo{mochila1}')
+    plot_graph(objetos, mochila1, capacidad)
+    fin = time.time()
+    tiempo_ejecutado = fin - inicio
+    print('Tiempo de ejecucion: ', tiempo_ejecutado)
+
+
+def exper6():
+    inicio = time.time()
+    objetos = [(5,20), (1,5), (1,18), (3,25),(1,4), (1,9), (3,15), (1,15), (5,10)]
+    capacidad = 135
+    total_objetos, mochila1 = mochila(capacidad, objetos)
+    print(f'El total de objetos es {total_objetos} y la mochila quedo{mochila1}')
+    plot_graph(objetos, mochila1, capacidad)
+    fin = time.time()
+    tiempo_ejecutado = fin - inicio
+    print('Tiempo de ejecucion: ', tiempo_ejecutado)
+
+
+def exper7():
+    inicio = time.time()
+    objetos = [(5,10), (1,15), (1,8), (3,15), (5,20), (1,5)]
+    capacidad = 55
+    total_objetos, mochila1 = mochila(capacidad, objetos)
+    print(f'El total de objetos es {total_objetos} y la mochila quedo{mochila1}')
+    plot_graph(objetos, mochila1, capacidad)
+    fin = time.time()
+    tiempo_ejecutado = fin - inicio
+    print('Tiempo de ejecucion: ', tiempo_ejecutado)
+
+
+def exper8():
+    inicio = time.time()
+    objetos = [(2,10), (3,35), (1,8), (3,15), (5,10), (4,10)]
+    capacidad = 35
+    total_objetos, mochila1 = mochila(capacidad, objetos)
+    print(f'El total de objetos es {total_objetos} y la mochila quedo{mochila1}')
+    plot_graph(objetos, mochila1, capacidad)
+    fin = time.time()
+    tiempo_ejecutado = fin - inicio
+    print('Tiempo de ejecucion: ', tiempo_ejecutado)
+
+
+def exper9():
+    inicio = time.time()
+    objetos = [(5,10), (7,15), (9,8), (1,15), (1,8), (3,15)]
+    capacidad = 100
+    total_objetos, mochila1 = mochila(capacidad, objetos)
+    print(f'El total de objetos es {total_objetos} y la mochila quedo{mochila1}')
+    plot_graph(objetos, mochila1, capacidad)
+    fin = time.time()
+    tiempo_ejecutado = fin - inicio
+    print('Tiempo de ejecucion: ', tiempo_ejecutado)
+
+
+def exper10():
+    inicio = time.time()
+    objetos = [(3,10), (8,15), (3,8), (1,15), (7,15), (9,8)]
+    capacidad = 90
+    total_objetos, mochila1 = mochila(capacidad, objetos)
+    print(f'El total de objetos es {total_objetos} y la mochila quedo{mochila1}')
+    plot_graph(objetos, mochila1, capacidad)
+    fin = time.time()
+    tiempo_ejecutado = fin - inicio
+    print('Tiempo de ejecucion: ', tiempo_ejecutado)
+    
+    
+    
+
+#if _name_ == 'main':
+
+exper1()
